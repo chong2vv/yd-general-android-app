@@ -14,4 +14,10 @@ data class FeedBean(
      var comment_count: Int?,
      var collect_count: Int?,
      var created_at: Long?,
-)
+     var cover_image: String?,
+) {
+     constructor() : this(0,0,"","",null,"","",0,0,0,0, 0,0,""){
+
+     }
+
+}

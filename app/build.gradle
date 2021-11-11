@@ -152,6 +152,8 @@ dependencies {
     // 下拉刷新
     implementation("in.srain.cube:ultra-ptr:${versions.ptr}")
 
+    implementation('com.blankj:utilcodex:1.30.6')
+
     // 加载动画
     implementation("com.ldoublem.loadingview:loadingviewlib:${versions.loadingview}")
 }
