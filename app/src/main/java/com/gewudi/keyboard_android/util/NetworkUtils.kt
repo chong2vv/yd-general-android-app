@@ -1,10 +1,12 @@
 package com.gewudi.keyboard_android.util
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.provider.Settings
 
+@SuppressLint("MissingPermission")
 fun isNetworkConnect(): Boolean {
     val cm = com.gewudi.keyboard_android.XArchApplication.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     return cm.activeNetworkInfo?.isAvailable ?: false

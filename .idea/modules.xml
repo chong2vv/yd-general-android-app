@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/keyboard_android.iml" filepath="$PROJECT_DIR$/.idea/modules/keyboard_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/keyboard_android.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/keyboard_android.app.iml" />
     </modules>
   </component>
 </project>

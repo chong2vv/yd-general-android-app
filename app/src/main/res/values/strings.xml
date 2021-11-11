@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">格物帝</string>
     <string name="page_home">首页</string>
-    <string name="page_small_video">小视频</string>
-    <string name="page_acgn">二次元</string>
-    <string name="page_gold">领福利</string>
+    <string name="page_small_video">商城</string>
+    <string name="page_acgn">发布</string>
+    <string name="page_gold">消息</string>
     <string name="page_mine">我的</string>
 
     <string name="page_state_no_network">无网络连接，请检查网络设置</string>

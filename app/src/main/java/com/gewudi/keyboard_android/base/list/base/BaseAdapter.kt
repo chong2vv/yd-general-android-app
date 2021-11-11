@@ -1,10 +1,7 @@
 package com.gewudi.keyboard_android.base.list.base
 
 import com.gewudi.keyboard_android.base.list.multitype.MultiTypeAdapter
-import com.gewudi.keyboard_android.item.LoadMoreViewDelegate
-import com.gewudi.keyboard_android.item.Test1ViewDelegate
-import com.gewudi.keyboard_android.item.Test2ViewDelegate
-import com.gewudi.keyboard_android.item.Test3ViewDelegate
+import com.gewudi.keyboard_android.item.*
 
 open class BaseAdapter : MultiTypeAdapter() {
 
@@ -13,6 +10,7 @@ open class BaseAdapter : MultiTypeAdapter() {
         register(Test1ViewDelegate())
         register(Test2ViewDelegate())
         register(Test3ViewDelegate())
+        register(HomeItemViewDelegate())
     }
 
     open fun setViewData(viewData: List<BaseViewData<*>>) {
