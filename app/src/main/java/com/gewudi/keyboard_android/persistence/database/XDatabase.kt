@@ -6,7 +6,7 @@ import androidx.room.RoomDatabase
 import com.gewudi.keyboard_android.bean.User
 import com.gewudi.keyboard_android.persistence.database.dao.UserDao
 
-@Database(entities = [User::class], version = 1)
+@Database(entities = [User::class], version = 2)
 abstract class XDatabase : RoomDatabase() {
 
     abstract fun userDao(): UserDao

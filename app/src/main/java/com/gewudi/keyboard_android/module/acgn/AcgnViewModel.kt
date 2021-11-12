@@ -19,16 +19,16 @@ class AcgnViewModel : BaseRecyclerViewModel() {
             // 模拟插入一些数据
             XDatabase.userDao().insert(
                 listOf(
-                    User(1, "吴", "一", null),
-                    User(2, "黄", "二", null),
-                    User(3, "李", "三", null),
-                    User(4, "张", "四", null),
-                    User(5, "林", "五", null),
-                    User(6, "吴", "六", null),
-                    User(7, "黄", "七", null),
-                    User(8, "李", "八", null),
-                    User(9, "张", "九", null),
-                    User(10, "林", "十", null),
+//                    User(1, "吴", "一", null),
+//                    User(2, "黄", "二", null),
+//                    User(3, "李", "三", null),
+//                    User(4, "张", "四", null),
+//                    User(5, "林", "五", null),
+//                    User(6, "吴", "六", null),
+//                    User(7, "黄", "七", null),
+//                    User(8, "李", "八", null),
+//                    User(9, "张", "九", null),
+//                    User(10, "林", "十", null),
                 )
             )
 

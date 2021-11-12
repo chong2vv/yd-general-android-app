@@ -15,7 +15,7 @@ class Test3ViewDelegate : BaseItemViewDelegate<Test3ViewData, Test3ViewDelegate.
 
     override fun onBindViewHolder(holder: ViewHolder, item: Test3ViewData) {
         super.onBindViewHolder(holder, item)
-        holder.viewBinding.tvTest.text = item.value.firstName + item.value.lastName
+//        holder.viewBinding.tvTest.text = item.value.firstName + item.value.lastName
     }
 
     class ViewHolder(val viewBinding: ItemTest2Binding) : RecyclerView.ViewHolder(viewBinding.root) {

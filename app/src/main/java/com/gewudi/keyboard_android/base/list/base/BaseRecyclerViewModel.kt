@@ -22,7 +22,6 @@ abstract class BaseRecyclerViewModel : BaseViewModel() {
      * 页码
      */
     private var currentPage = AtomicInteger(0)
-    private var currentLastCursorId:Long = 0
 
     /**
      * 子类重写这个函数加载数据

@@ -16,14 +16,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/user_face_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
         app:cardCornerRadius="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        >
+        app:layout_constraintTop_toTopOf="parent">
+
         <ImageView
             android:id="@+id/user_face_image"
             android:layout_width="80dp"
@@ -32,90 +33,96 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="79dp" />
+        android:text="我是谁"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintLeft_toRightOf="@id/user_face_card"
+        app:layout_constraintTop_toTopOf="@id/user_face_card" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/level_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="117dp" />
+        android:text="LV:99"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/name_view"
+        app:layout_constraintTop_toBottomOf="@id/name_view"
+        tools:layout_editor_absoluteY="82dp" />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="341dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="32dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="150dp" />
-
-    <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/desc_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="191dp" />
+        android:layout_marginTop="18dp"
+        android:maxLines="2"
+        android:text="这是一条简介"
+        app:layout_constraintLeft_toLeftOf="@id/user_face_card"
+        app:layout_constraintTop_toBottomOf="@id/user_face_card"
+         />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/like_count_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="240dp" />
+        android:text="354"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/desc_view"
+        app:layout_constraintLeft_toLeftOf="@id/desc_view" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/like_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="270dp" />
+        android:text="关注"
+        android:layout_marginTop="12dp"
+        app:layout_constraintLeft_toLeftOf="@id/like_count_view"
+        app:layout_constraintTop_toBottomOf="@id/like_count_view" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/fans_count_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="237dp" />
+        android:text="3000"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintLeft_toRightOf="@id/like_count_view"
+        app:layout_constraintTop_toTopOf="@id/like_count_view" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/fans_title_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="270dp" />
+        android:text="粉丝"
+        app:layout_constraintLeft_toLeftOf="@id/fans_count_view"
+        app:layout_constraintTop_toTopOf="@id/like_title_view" />
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="183dp"
-        tools:layout_editor_absoluteY="232dp" />
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="177dp" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        tools:layout_editor_absoluteX="186dp"
-        tools:layout_editor_absoluteY="273dp" />
+        tools:layout_editor_absoluteX="176dp"
+        tools:layout_editor_absoluteY="213dp" />
 
-    <com.gewudi.keyboard_android.base.list.XRecyclerView
-        android:layout_width="409dp"
-        android:layout_height="431dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="299dp" />
+    <!--    <com.gewudi.keyboard_android.base.list.XRecyclerView-->
+<!--        android:id="@+id/rv_list"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

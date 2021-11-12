@@ -14,10 +14,10 @@ interface UserDao {
     suspend fun getAll(): List<User>
 
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
-    suspend fun loadAllByIds(userIds: IntArray): List<User>
+    suspend fun loadAllByIds(userIds: LongArray): List<User>
 
-    @Query("SELECT * FROM user WHERE first_name LIKE :first AND " + "last_name LIKE :last LIMIT 1")
-    suspend fun findByName(first: String, last: String): User
+    @Query("SELECT * FROM user WHERE uid LIKE :uid LIMIT 1")
+    suspend fun findByUid(uid: Long): User
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(users: List<User>)

@@ -42,6 +42,10 @@
             android:name=".module.about.AboutActivity"
             android:screenOrientation="portrait"
             android:theme="@style/ActionBarActivityTheme" />
+
+        <activity android:name=".module.login.LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/ActivityTheme" />
     </application>
 
 </manifest>
