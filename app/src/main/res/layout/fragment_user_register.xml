@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".module.login.LoginActivity"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black_02_color"
+        />
+
+    <TextView
+        android:id="@+id/tint_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="手机密码注册"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:id="@+id/register_phone_input_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="请输入手机号"
+        android:layout_marginTop="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tint_view"
+        app:layout_constraintWidth="300dp"
+        app:layout_constraintHeight="60dp"/>
+
+    <EditText
+        android:id="@+id/register_password_input_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="请输入密码"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/register_phone_input_view"
+        app:layout_constraintRight_toRightOf="@id/register_phone_input_view"
+        app:layout_constraintTop_toBottomOf="@id/register_phone_input_view"
+        app:layout_constraintWidth="300dp"
+        app:layout_constraintHeight="60dp" />
+
+    <EditText
+        android:id="@+id/register_password_twice_input_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="请再次输入密码"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="@id/register_password_input_view"
+        app:layout_constraintRight_toRightOf="@id/register_password_input_view"
+        app:layout_constraintTop_toBottomOf="@id/register_password_input_view"
+        app:layout_constraintWidth="300dp"
+        app:layout_constraintHeight="60dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/login_register_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="30dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintLeft_toLeftOf="@id/register_password_twice_input_view"
+        app:layout_constraintRight_toRightOf="@id/register_password_twice_input_view"
+        app:layout_constraintTop_toBottomOf="@id/register_password_twice_input_view">
+
+        <TextView
+            android:id="@+id/register_button"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:text="注册"
+            android:gravity="center"/>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

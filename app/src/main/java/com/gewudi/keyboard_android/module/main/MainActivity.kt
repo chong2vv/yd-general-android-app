@@ -46,7 +46,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     /**
      * 状态栏导航栏初始化
      */
-    private fun initSystemBar() {
+    override fun initSystemBar() {
         immersionBar {
             transparentStatusBar()
             statusBarDarkFont(true)

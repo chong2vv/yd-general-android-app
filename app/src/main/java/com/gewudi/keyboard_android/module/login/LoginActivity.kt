@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.fragment.app.FragmentManager
 import com.gewudi.keyboard_android.base.BaseActivity
 import com.gewudi.keyboard_android.constant.EventName
 import com.gewudi.keyboard_android.constant.PageName
@@ -23,34 +24,39 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initSystemBar()
         initView()
     }
 
     private fun initView() {
-        viewModel.userLiveData.observe(this) {
-            var uid: Long? = it
-            uid?.let {
-                finish()
-                XEventBus.post(EventName.LOGIN, uid)
-                Toast.makeText(this, uid.toString(), Toast.LENGTH_SHORT).show()
-            }
-        }
+        supportFragmentManager.beginTransaction().replace(viewBinding.fragmentContainer.id,UserLoginFragment()).commit()
 
-        viewBinding.loginCardView.setOnClickListener {
-            val phoneString = viewBinding.phoneInputView.text.toString()
-            val passwordString = viewBinding.passwordInputView.text.toString()
-            if (phoneString.isEmpty()) {
-                Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+//        viewModel.userLiveData.observe(this) {
+//            var uid: Long? = it
+//            uid?.let {
+//                finish()
+//                XEventBus.post(EventName.LOGIN, uid)
+//                Toast.makeText(this, uid.toString(), Toast.LENGTH_SHORT).show()
+//            }
+//        }
 
-            if (passwordString.isEmpty()) {
-                Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+//        viewBinding.fragmentTabHost
 
-            viewModel.userLoginWithPhone(phoneString,passwordString)
-        }
+//        viewBinding.loginCardView.setOnClickListener {
+//            val phoneString = viewBinding.phoneInputView.text.toString()
+//            val passwordString = viewBinding.passwordInputView.text.toString()
+//            if (phoneString.isEmpty()) {
+//                Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+//
+//            if (passwordString.isEmpty()) {
+//                Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show()
+//                return@setOnClickListener
+//            }
+//
+//            viewModel.userLoginWithPhone(phoneString,passwordString)
+//        }
     }
 
     @PageName

@@ -3,6 +3,8 @@ package com.gewudi.keyboard_android.base
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.viewbinding.ViewBinding
+import com.gewudi.keyboard_android.R
+import com.gyf.immersionbar.ktx.immersionBar
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity
@@ -35,6 +37,18 @@ abstract class BaseActivity<T : ViewBinding>(val inflater: (inflater: LayoutInfl
     override fun onDestroy() {
         compositeDisposable.dispose()
         super.onDestroy()
+    }
+
+    /**
+     * 状态栏导航栏初始化
+     */
+    open fun initSystemBar() {
+        immersionBar {
+            transparentStatusBar()
+            statusBarDarkFont(true)
+            navigationBarColor(R.color.white)
+            navigationBarDarkIcon(true)
+        }
     }
 
     /**

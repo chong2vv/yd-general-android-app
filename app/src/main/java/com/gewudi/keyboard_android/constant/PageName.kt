@@ -2,7 +2,7 @@ package com.gewudi.keyboard_android.constant
 
 import androidx.annotation.StringDef
 
-@StringDef(PageName.MAIN, PageName.HOME, PageName.ACGN, PageName.SMALL_VIDEO, PageName.GOLD, PageName.MINE, PageName.ABOUT, PageName.LOGIN)
+@StringDef(PageName.MAIN, PageName.HOME, PageName.ACGN, PageName.SMALL_VIDEO, PageName.GOLD, PageName.MINE, PageName.ABOUT, PageName.LOGIN, PageName.USER_LOGIN, PageName.USER_REGISTER)
 @Retention(AnnotationRetention.SOURCE)
 annotation class PageName {
     companion object {
@@ -14,5 +14,7 @@ annotation class PageName {
         const val MINE = "mine"
         const val ABOUT = "about"
         const val LOGIN = "login"
+        const val USER_LOGIN = "user_login"
+        const val USER_REGISTER = "user_register"
     }
 }
