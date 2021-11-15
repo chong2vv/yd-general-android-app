@@ -19,6 +19,19 @@ class TitleValueView @JvmOverloads constructor(
         }
     }
 
+    fun setTitleStr(title: String) {
+        viewBinding.run {
+            titleValueTitleView.text = title
+        }
+    }
+
+    fun setValueStr(value: String) {
+        viewBinding.run {
+            titleValueValueView.text = value
+        }
+    }
+
+
     fun setParameter(builder: TitleValueView.ParameterBuilder) {
         val parameter = builder.build()
         viewBinding.run {

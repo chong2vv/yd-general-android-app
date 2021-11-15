@@ -8,7 +8,9 @@ import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.databinding.FragmentUserLoginBinding
 import com.gewudi.keyboard_android.eventbus.XEventBus
 import android.R
+import android.widget.Toast
 import androidx.fragment.app.*
+import com.gewudi.keyboard_android.widget.NavigationView
 
 
 class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLoginBinding::inflate) {
@@ -21,23 +23,27 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
 
     private fun initView() {
         viewModel.userLiveData.observe(viewLifecycleOwner) {
-            var uid: Long? = it
-            uid?.let {
-                XEventBus.post(EventName.LOGIN, uid)
-//                Toast.makeText(this, uid.toString(), Toast.LENGTH_SHORT).show()
+            var user = it.getOrNull()
+            user?.let {
+                Toast.makeText(context, user.username.toString(), Toast.LENGTH_SHORT).show()
             }
+//            var uid: Long? = it
+//            uid?.let {
+//                XEventBus.post(EventName.LOGIN, uid)
+////                Toast.makeText(this, uid.toString(), Toast.LENGTH_SHORT).show()
+//            }
         }
 
         viewBinding.loginCardView.setOnClickListener {
             val phoneString = viewBinding.phoneInputView.text.toString()
             val passwordString = viewBinding.passwordInputView.text.toString()
             if (phoneString.isEmpty()) {
-//                Toast.makeText(this, "请输入手机号", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "请输入手机号", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             if (passwordString.isEmpty()) {
-//                Toast.makeText(this, "请输入密码", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "请输入密码", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -52,6 +58,13 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
                 .addToBackStack(null)
                 .commit()
         }
+
+        viewBinding.navigationBar.setParameter(
+            NavigationView.ParameterBuilder()
+                .setShowBack(true)
+                .setShowTitle(true)
+                .setTitle("登录")
+        )
     }
 
     @PageName

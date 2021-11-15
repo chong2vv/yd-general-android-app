@@ -7,5 +7,5 @@ data class BaseResponse<T>(
     var code: Int = 0,
     val msg: String? = null,
     val redirect: String? = null,
-    val value: T? = null
+    val result: T? = null
 )

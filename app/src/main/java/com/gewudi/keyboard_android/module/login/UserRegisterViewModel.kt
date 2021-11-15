@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.gewudi.keyboard_android.base.BaseViewModel
 import com.gewudi.keyboard_android.bean.mock.UserMock
 import com.gewudi.keyboard_android.constant.PageName
+import com.gewudi.keyboard_android.network.NetworkApi
 import com.gewudi.keyboard_android.persistence.XKeyNameConst
 import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
@@ -15,6 +16,12 @@ class UserRegisterViewModel : BaseViewModel() {
 
     fun  userLoginWithPhone(phone: String, password:String) {
         viewModelScope.launch {
+            val result = NetworkApi.requestUserRegisterPassword(phone, password)
+            if (result.isSuccess) {
+
+            }else{
+
+            }
             var user = UserMock().getUser()
             user.uid?.let { XKeyValue.putLong(XKeyNameConst.USER_ID, it) }
             XDatabase.userDao().insert(user)

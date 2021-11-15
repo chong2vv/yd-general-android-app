@@ -5,15 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_mine"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="我的"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/user_face_card"
@@ -63,66 +54,38 @@
         app:layout_constraintTop_toBottomOf="@id/user_face_card"
          />
 
-    <TextView
+    <com.gewudi.keyboard_android.widget.TitleValueView
         android:id="@+id/like_count_view"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="354"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/desc_view"
-        app:layout_constraintLeft_toLeftOf="@id/desc_view" />
+        app:layout_constraintLeft_toLeftOf="@id/desc_view"/>
 
-    <TextView
-        android:id="@+id/like_title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="关注"
-        android:layout_marginTop="12dp"
-        app:layout_constraintLeft_toLeftOf="@id/like_count_view"
-        app:layout_constraintTop_toBottomOf="@id/like_count_view" />
-
-    <TextView
+    <com.gewudi.keyboard_android.widget.TitleValueView
         android:id="@+id/fans_count_view"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="3000"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintLeft_toRightOf="@id/like_count_view"
-        app:layout_constraintTop_toTopOf="@id/like_count_view" />
+        android:layout_marginStart="50dp"
+        app:layout_constraintTop_toTopOf="@id/like_count_view"
+        app:layout_constraintLeft_toRightOf="@id/like_count_view" />
 
-    <TextView
-        android:id="@+id/fans_title_view"
-        android:layout_width="wrap_content"
+    <com.gewudi.keyboard_android.widget.TitleValueView
+        android:id="@+id/collect_count_view"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:text="粉丝"
-        app:layout_constraintLeft_toLeftOf="@id/fans_count_view"
-        app:layout_constraintTop_toTopOf="@id/like_title_view" />
+        android:layout_marginStart="50dp"
+        app:layout_constraintTop_toTopOf="@id/fans_count_view"
+        app:layout_constraintLeft_toRightOf="@id/fans_count_view"/>
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="177dp" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="213dp" />
-
-    <!--    <com.gewudi.keyboard_android.base.list.XRecyclerView-->
-<!--        android:id="@+id/rv_list"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.0"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.0" />-->
+    <com.gewudi.keyboard_android.base.list.XRecyclerView
+        android:id="@+id/rv_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/collect_count_view" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

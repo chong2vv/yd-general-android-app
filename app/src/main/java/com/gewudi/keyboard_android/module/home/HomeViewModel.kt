@@ -1,18 +1,25 @@
 package com.gewudi.keyboard_android.module.home
 
 import android.text.format.DateFormat
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.gewudi.keyboard_android.base.list.base.BaseRecyclerViewModel
 import com.gewudi.keyboard_android.base.list.base.BaseViewData
 import com.gewudi.keyboard_android.bean.FeedBean
+import com.gewudi.keyboard_android.bean.VideoBean
+import com.gewudi.keyboard_android.bean.test.TestBean
 import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.item.HomeItemViewData
 import com.gewudi.keyboard_android.item.Test1ViewData
 import com.gewudi.keyboard_android.item.Test2ViewData
+import com.gewudi.keyboard_android.network.NetworkApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class HomeViewModel : BaseRecyclerViewModel() {
+
+    val testLiveData = MutableLiveData<Result<TestBean>>()
+    val test2LiveData = MutableLiveData<Result<TestBean>>()
 
     override fun loadData(isLoadMore: Boolean, isReLoad: Boolean, page: Int) {
         viewModelScope.launch {
@@ -68,6 +75,21 @@ class HomeViewModel : BaseRecyclerViewModel() {
             }
             postData(isLoadMore, viewDataList)
             // postError(isLoadMore)
+        }
+    }
+
+    //Test 接口测试
+    fun postTest() {
+        viewModelScope.launch {
+            val result = NetworkApi.requestPostTest("1010101", "15712921931","xinke308")
+            testLiveData.value = result
+        }
+    }
+
+    fun getTest() {
+        viewModelScope.launch {
+            val result = NetworkApi.requestPostTest("2020202","15712921313","xinke407")
+            test2LiveData.value = result
         }
     }
 

@@ -15,6 +15,7 @@ import com.gewudi.keyboard_android.module.login.LoginActivity
 import com.gewudi.keyboard_android.constant.EventName
 import com.gewudi.keyboard_android.eventbus.XEventBus
 import com.gewudi.keyboard_android.persistence.database.XDatabase
+import com.gewudi.keyboard_android.widget.TitleValueView
 import kotlinx.coroutines.launch
 
 /**
@@ -38,6 +39,8 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
             startActivity(Intent(activity, LoginActivity::class.java))
         }
 
+        setCountViewTitle()
+
         XEventBus.observe(viewLifecycleOwner, EventName.LOGIN) { message: Long ->
 //            println("username: ========== "+message.username)
             val uid = message
@@ -48,6 +51,13 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
                 }
             }
         }
+    }
+
+    private fun setCountViewTitle() {
+//        viewBinding.likeCountView.setParameter(TitleValueView.ParameterBuilder().setTitle().setValue())
+        viewBinding.likeCountView.setTitleStr("关注")
+        viewBinding.fansCountView.setTitleStr("粉丝")
+        viewBinding.collectCountView.setTitleStr("获赞")
     }
 
 //    XEventBus.observe(viewLifecycleOwner, EventName.REFRESH_HOME_LIST) { message: String ->

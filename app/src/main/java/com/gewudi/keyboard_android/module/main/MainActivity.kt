@@ -115,4 +115,5 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private fun setCurrentTab(@TabId tabID: String) {
         viewBinding.fragmentTabHost.setCurrentTabByTag(tabID)
     }
+
 }

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.gewudi.keyboard_android.R
 import com.gewudi.keyboard_android.base.BaseFragment
 import com.gewudi.keyboard_android.base.list.XRecyclerView
 import com.gewudi.keyboard_android.base.list.base.BaseViewData
@@ -51,6 +52,25 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         XEventBus.observe(viewLifecycleOwner, EventName.TEST) { message: String ->
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
+
+        viewModel.testLiveData.observe(viewLifecycleOwner) {
+            val result = it.getOrNull()
+            val json = result?.article_list?.get(0)
+
+            Toast.makeText(context, result?.user_name, Toast.LENGTH_SHORT).show()
+
+        }
+        viewModel.postTest()
+
+        viewModel.test2LiveData.observe(viewLifecycleOwner) {
+            val result = it.getOrNull()
+
+            val json = result?.article_list?.get(0)
+
+            Toast.makeText(context, result?.user_name, Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.getTest()
     }
 
     @PageName

@@ -59,10 +59,10 @@ abstract class BaseNetworkApi<I>(private val baseUrl: String) : IService<I> {
                 if (response.code != ErrorCode.OK) {
                     throw NetworkException.of(response.code, "response code not 200")
                 }
-                if (response.value == null) {
+                if (response.result == null) {
                     throw NetworkException.of(ErrorCode.VALUE_IS_NULL, "response value is null")
                 }
-                return Result.success(response.value)
+                return Result.success(response.result)
             } catch (throwable: Throwable) {
                 if (throwable is NetworkException) {
                     return Result.failure(throwable)
