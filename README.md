@@ -1,5 +1,3 @@
-本文章已授权微信公众号 guolin_blog （郭霖）独家发布。
-发布地址：[手把手带你搭建一个优秀的Android项目架构](https://mp.weixin.qq.com/s?__biz=MzA5MzI3NjE2MA==&mid=2650258650&idx=1&sn=ae258f977da27c31c2c0c6a2806438e0&chksm=88634db5bf14c4a3206700ed340c9de58383b4cabd4de060db8a78789e8b3ef0d6031dbb7a99&mpshare=1&scene=1&srcid=0910xjtv2MhEynl3yi9UGJOA&sharer_sharetime=1631236910632&sharer_shareid=8245fe44cd1f6c522efa500f73bf5205&exportkey=AygMNQx3lYnQnyeid0swMNE%3D&pass_ticket=VlfDQiVyltIkpHDrGW04ftXL2hyRdDn5gpggzvZoolXa0PUKHTY6JBJnAx%2BNWKNe&wx_header=0#rd)
 
 ### 目录
 
@@ -901,7 +899,7 @@ interface INetworkService {
 然后一个网络interface对应创建一个简单的BaseNetworkApi类型的对象，比如NetworkApi：
 
 ```kotlin
-object NetworkApi : BaseNetworkApi<INetworkService>("http://172.16.47.112:8080/XArchServer/") {
+object NetworkApi : BaseNetworkApi<INetworkService>("http://gewudi/gewudi/") {
 
     suspend fun requestVideoDetail(id: String) = getResult {
         service.requestVideoDetail(id)
@@ -929,7 +927,7 @@ class SmallVideoViewModel : BaseViewModel() {
 }
 ```
 
-到这里为止，就是一个最简单的网络请求示例了，记得要先启动服务端的Tomcat才能测试成功，对应的服务端源码在这里（用IDEA打开即可）：https://github.com/huannan/XArchServer
+到这里为止，就是一个最简单的网络请求示例了
 
 服务端就是最简单的Java Web项目，封装了最基础的Servlet，以及引入了FastJson，代码都比较简单就不详细解释了，有兴趣的可以看一下。项目架构如下：
 
@@ -1103,19 +1101,3 @@ object XKeyValue {
 需要提一下的是Room的API已经支持返回挂起函数了。
 
 这一块比较简单就不赘述了。
-
-### 期望和总结
-
-文章主要带大家实现了Gradle配置统一管理、基类封装、视图绑定、底部导航栏的实现、事件总线框架封装、列表架构封装、网络架构搭建、持久化，讲的都是笔者在搭建整个架构的核心思路，里面其实还有大量逻辑和细节，可以直接查阅源码：
-
-* 客户端源码： https://github.com/huannan/XArch
-* 服务端源码： https://github.com/huannan/XArchServer
-
-一个完整的项目还有诸如下面等大量工作需要实现：
-
-* 路由管理这一块还没实现
-* 引入DiffUtil
-* 组件化改造，将各种业务无关的功能抽取到lib-base模块并且解决模块间的通信和路由
-* 完善Repository层等等
-
-这些功能笔者会在后面持续更新，如果觉得这个架构还不错或者有任何问题，可以加笔者微信huannan88，大家一起来讨论。
