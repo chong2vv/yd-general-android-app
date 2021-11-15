@@ -6,7 +6,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.RecyclerView
 import com.gewudi.keyboard_android.base.BaseFragment
+import com.gewudi.keyboard_android.base.list.XRecyclerView
+import com.gewudi.keyboard_android.base.list.base.BaseViewData
 import com.gewudi.keyboard_android.bean.User
 import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.databinding.FragmentMineBinding
@@ -31,9 +34,6 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     }
 
     private fun initView() {
-        viewBinding.tvMine.setOnClickListener {
-            startActivity(Intent(activity, AboutActivity::class.java))
-        }
 
         viewBinding.userFaceImage.setOnClickListener {
             startActivity(Intent(activity, LoginActivity::class.java))
@@ -51,6 +51,13 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
                 }
             }
         }
+
+        viewBinding.rvList.init(
+            XRecyclerView.Config()
+                .setViewModel(viewModel)
+        )
+
+        viewModel.loadData(false,false,0)
     }
 
     private fun setCountViewTitle() {
