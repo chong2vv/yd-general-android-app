@@ -20,9 +20,9 @@ interface INetworkService {
 
     //user 登录注册
     //注册
-    @GET("/user/user_register_password.json")
-    suspend fun requestUserRegisterPassword(@Query("phone") phone:String, @Query("password") password:String):BaseResponse<User>
+    @POST("/user/user_register_password.json")
+    suspend fun requestUserRegisterPassword(@Body phone:String, @Body password:String):BaseResponse<User>
     //登录
-    @GET("/user/password_login.json")
-    suspend fun requestUserPasswordLogin(@Query("phone") phone:String, @Query("password") password:String):BaseResponse<User>
+    @POST("/user/password_login.json")
+    suspend fun requestUserPasswordLogin(@Body phone:String, @Body password:String):BaseResponse<User>
 }

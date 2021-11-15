@@ -54,10 +54,10 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
 
         viewBinding.rvList.init(
             XRecyclerView.Config()
+                .setPullRefreshEnable(false)
+                .setPullUploadMoreEnable(false)
                 .setViewModel(viewModel)
         )
-
-        viewModel.loadData(false,false,0)
     }
 
     private fun setCountViewTitle() {

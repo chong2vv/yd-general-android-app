@@ -4,8 +4,7 @@ package com.gewudi.keyboard_android.network.base
  * 网络数据返回基类
  */
 data class BaseResponse<T>(
-    var code: Int = 0,
-    val msg: String? = null,
-    val redirect: String? = null,
+    var errorCode: Int = 0,
+    val errorMsg: String? = null,
     val result: T? = null
 )

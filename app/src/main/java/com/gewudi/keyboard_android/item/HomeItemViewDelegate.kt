@@ -27,14 +27,15 @@ class HomeItemViewDelegate : BaseItemViewDelegate<HomeItemViewData, HomeItemView
         item.value.cover_image?.let { holder.viewBinding.cardImage.setImageUrl(it) }
         holder.viewBinding.cardTitle.text = item.value.title
         var layoutParams = holder.viewBinding.cardImage.layoutParams
-//        val wm = holder.viewBinding.cardImage.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-//        val display: WindowMetrics = wm.currentWindowMetrics
-//        var itemWidth = (display.bounds.width() - 56)/2
-//        layoutParams.width = itemWidth.toInt()
-//
-//        val width: Int = holder.viewBinding.card.width
-//        val height: Int =  holder.viewBinding.card.height
-//        val scale = height / width
+        val wm = holder.viewBinding.cardImage.context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        val display: WindowMetrics = wm.currentWindowMetrics
+        var itemWidth = (display.bounds.width() - 56)/2
+        layoutParams.width = itemWidth.toInt()
+
+        var width: Int = holder.viewBinding.cardImage.width
+        var height: Int =  holder.viewBinding.cardImage.height
+//        height / width
+        println("width ======= "+ width)
 //        if (scale > STANDARD_SCALE) {
 //            //采用3:4显示
 //            layoutParams.height = (itemWidth * SCALE).toInt()
@@ -42,7 +43,6 @@ class HomeItemViewDelegate : BaseItemViewDelegate<HomeItemViewData, HomeItemView
 //            //采用1:1显示
 //            layoutParams.height = itemWidth
 //        }
-//        holder.viewBinding.cardImage.layoutParams = layoutParams
     }
 
     class ViewHolder(val viewBinding: ItemHomeBinding) : RecyclerView.ViewHolder(viewBinding.root) {

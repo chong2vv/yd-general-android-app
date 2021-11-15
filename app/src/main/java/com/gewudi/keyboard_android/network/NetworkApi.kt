@@ -6,7 +6,7 @@ import com.gewudi.keyboard_android.network.base.BaseNetworkApi
  * 网络请求具体实现
  * 需要部署服务端：https://github.com/huannan/XArchServer
  */
-object NetworkApi : BaseNetworkApi<INetworkService>("http://gewudi.com/gewudi") {
+object NetworkApi : BaseNetworkApi<INetworkService>("http://182.92.154.139:8080/gewudi") {
 
     suspend fun requestVideoDetail(id: String) = getResult {
         service.requestVideoDetail(id)

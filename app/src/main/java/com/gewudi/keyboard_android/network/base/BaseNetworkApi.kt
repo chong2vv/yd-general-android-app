@@ -56,8 +56,8 @@ abstract class BaseNetworkApi<I>(private val baseUrl: String) : IService<I> {
         for (i in 1..RETRY_COUNT) {
             try {
                 val response = block()
-                if (response.code != ErrorCode.OK) {
-                    throw NetworkException.of(response.code, "response code not 200")
+                if (response.errorCode != ErrorCode.OK) {
+                    throw NetworkException.of(response.errorCode, "response code not 200")
                 }
                 if (response.result == null) {
                     throw NetworkException.of(ErrorCode.VALUE_IS_NULL, "response value is null")

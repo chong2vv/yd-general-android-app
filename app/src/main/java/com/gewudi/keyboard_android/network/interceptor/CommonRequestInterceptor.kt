@@ -9,8 +9,8 @@ class CommonRequestInterceptor : Interceptor {
         val request = chain.request()
         val builder = request.newBuilder()
         // 这里添加公共请求头
-        builder.addHeader("brand", Build.BRAND)
-        builder.addHeader("model", Build.MODEL)
+//        builder.addHeader("brand", Build.BRAND)
+//        builder.addHeader("model", Build.MODEL)
         return chain.proceed(builder.build())
     }
 }

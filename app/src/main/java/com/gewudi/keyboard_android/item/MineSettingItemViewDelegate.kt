@@ -9,6 +9,7 @@ import com.gewudi.keyboard_android.base.list.base.BaseItemViewDelegate
 import com.gewudi.keyboard_android.databinding.ItemMineSettingBinding
 
 
+
 class MineSettingItemViewDelegate : BaseItemViewDelegate<MineSettingItemViewData, MineSettingItemViewDelegate.ViewHolder>() {
 
     override fun onCreateViewHolder(inflater: LayoutInflater, context: Context, parent: ViewGroup): ViewHolder {
@@ -17,7 +18,8 @@ class MineSettingItemViewDelegate : BaseItemViewDelegate<MineSettingItemViewData
 
     override fun onBindViewHolder(holder: ViewHolder, item: MineSettingItemViewData) {
         super.onBindViewHolder(holder, item)
-        item.value.iconName?.let { holder.viewBinding.mineSetImage.setImageResource(it) }
+//        holder.viewBinding.tvTest.text = item.value.firstName + item.value.lastName
+        //        item.value.iconName?.let { holder.viewBinding.mineSetImage.setImageResource(it) }
         item.value.title?.let { holder.viewBinding.mineSetTitle.text = it }
     }
 

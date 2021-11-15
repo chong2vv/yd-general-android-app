@@ -35,8 +35,11 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
         }
 
         viewBinding.loginCardView.setOnClickListener {
-            val phoneString = viewBinding.phoneInputView.text.toString()
-            val passwordString = viewBinding.passwordInputView.text.toString()
+//            val phoneString = viewBinding.phoneInputView.text.toString()
+//            val passwordString = viewBinding.passwordInputView.text.toString()
+            val phoneString = "15712921839"
+            val passwordString = "xinke308"
+
             if (phoneString.isEmpty()) {
                 Toast.makeText(context, "请输入手机号", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -46,6 +49,7 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
                 Toast.makeText(context, "请输入密码", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
 
             viewModel.userLoginWithPhone(phoneString,passwordString)
         }

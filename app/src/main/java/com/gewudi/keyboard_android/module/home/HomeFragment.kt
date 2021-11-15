@@ -57,17 +57,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
             val result = it.getOrNull()
             val json = result?.article_list?.get(0)
 
-            Toast.makeText(context, result?.user_name, Toast.LENGTH_SHORT).show()
 
         }
         viewModel.postTest()
 
         viewModel.test2LiveData.observe(viewLifecycleOwner) {
             val result = it.getOrNull()
-
             val json = result?.article_list?.get(0)
 
-            Toast.makeText(context, result?.user_name, Toast.LENGTH_SHORT).show()
         }
 
         viewModel.getTest()
