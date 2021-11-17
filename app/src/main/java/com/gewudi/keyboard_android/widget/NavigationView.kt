@@ -42,13 +42,15 @@ class NavigationView @JvmOverloads constructor(
             ivBack.visibility = parameter.showBack.toVisibility()
             tvTitle.visibility = parameter.showTitle.toVisibility()
             tvTitle.text = parameter.title
+            ivRight.visibility = parameter.showRight.toVisibility()
         }
     }
 
     data class Parameter(
         var showBack: Boolean,
         var showTitle: Boolean,
-        var title: String
+        var title: String,
+        var showRight: Boolean
     )
 
     class ParameterBuilder {
@@ -56,6 +58,7 @@ class NavigationView @JvmOverloads constructor(
         private var showBack = false
         private var showTitle = true
         private var title = ""
+        private var showRight = false
 
         fun setShowBack(showBack: Boolean): ParameterBuilder {
             this.showBack = showBack
@@ -72,8 +75,13 @@ class NavigationView @JvmOverloads constructor(
             return this
         }
 
+        fun setShowRight(showRight: Boolean): ParameterBuilder {
+            this.showRight = showRight
+            return this
+        }
+
         fun build(): Parameter {
-            return Parameter(showBack, showTitle, title)
+            return Parameter(showBack, showTitle, title, showRight)
         }
     }
 }

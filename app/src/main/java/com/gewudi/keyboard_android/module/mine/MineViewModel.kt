@@ -15,7 +15,7 @@ class MineViewModel : BaseRecyclerViewModel() {
             val viewDataList: List<BaseViewData<*>> = listOf<BaseViewData<*>>(
                 MineSettingItemViewData(MineSetting(0,"我发布的")),
                 MineSettingItemViewData(MineSetting(0,"我点赞的")),
-                MineSettingItemViewData(MineSetting(0,"我收藏的"))
+                MineSettingItemViewData(MineSetting(0,"我收藏的")),
             )
 
             postData(isLoadMore, viewDataList)

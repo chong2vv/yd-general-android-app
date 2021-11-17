@@ -10,13 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.gewudi.keyboard_android.base.BaseFragment
 import com.gewudi.keyboard_android.base.list.XRecyclerView
 import com.gewudi.keyboard_android.base.list.base.BaseViewData
+import com.gewudi.keyboard_android.bean.MineSetting
 import com.gewudi.keyboard_android.bean.User
 import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.databinding.FragmentMineBinding
 import com.gewudi.keyboard_android.module.about.AboutActivity
 import com.gewudi.keyboard_android.module.login.LoginActivity
 import com.gewudi.keyboard_android.constant.EventName
+import com.gewudi.keyboard_android.constant.Key
 import com.gewudi.keyboard_android.eventbus.XEventBus
+import com.gewudi.keyboard_android.module.user.UserUpdateActivity
+import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
 import com.gewudi.keyboard_android.widget.TitleValueView
 import kotlinx.coroutines.launch
@@ -36,7 +40,12 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     private fun initView() {
 
         viewBinding.userFaceImage.setOnClickListener {
-            startActivity(Intent(activity, LoginActivity::class.java))
+            val uid = XKeyValue.getLong(Key.USER_ID)
+            if (uid > 0) {
+                startActivity(Intent(activity, UserUpdateActivity::class.java))
+            }else {
+                startActivity(Intent(activity, LoginActivity::class.java))
+            }
         }
 
         setCountViewTitle()
@@ -57,6 +66,13 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
                 .setPullRefreshEnable(false)
                 .setPullUploadMoreEnable(false)
                 .setViewModel(viewModel)
+                .setOnItemClickListener(object : XRecyclerView.OnItemClickListener {
+                    override fun onItemClick(parent: RecyclerView, view: View, viewData: BaseViewData<*>, position: Int, id: Long) {
+                        var data: BaseViewData<MineSetting> = viewData as BaseViewData<MineSetting>
+//                        Toast.makeText(context, "条目点击: ${viewData.value}", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "条目点击: ${data.value.title}", Toast.LENGTH_SHORT).show()
+                    }
+                })
         )
     }
 

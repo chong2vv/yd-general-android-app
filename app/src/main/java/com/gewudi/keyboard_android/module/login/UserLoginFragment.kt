@@ -10,7 +10,9 @@ import com.gewudi.keyboard_android.eventbus.XEventBus
 import android.R
 import android.widget.Toast
 import androidx.fragment.app.*
+import com.gewudi.keyboard_android.persistence.database.XDatabase
 import com.gewudi.keyboard_android.widget.NavigationView
+import okhttp3.ConnectionSpec
 
 
 class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLoginBinding::inflate) {
@@ -27,6 +29,7 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
             user?.let {
                 Toast.makeText(context, user.username.toString(), Toast.LENGTH_SHORT).show()
             }
+
 //            var uid: Long? = it
 //            uid?.let {
 //                XEventBus.post(EventName.LOGIN, uid)
