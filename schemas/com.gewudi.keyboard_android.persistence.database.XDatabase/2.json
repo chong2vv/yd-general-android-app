@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "29bd9e7ea08f8058e70ae9f0e453dfcc",
+    "identityHash": "b771fef4dc773620c63fb725ef56bf41",
     "entities": [
       {
         "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER, `oid` INTEGER, `oid_type` INTEGER, `username` TEXT, `user_profile_pic` TEXT, `gender` INTEGER, `age` INTEGER, `is_exist` INTEGER, `created_at` INTEGER, `user_tag` TEXT, `level_value` INTEGER, `address` TEXT, `level` INTEGER, `user_type` INTEGER, `password` TEXT, `user_phone` TEXT, `is_open_shop` INTEGER, PRIMARY KEY(`uid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER, `oid` INTEGER, `oid_type` INTEGER, `username` TEXT, `user_profile_pic` TEXT, `gender` INTEGER, `age` INTEGER, `is_exist` INTEGER, `created_at` INTEGER, `user_tag` TEXT, `level_value` INTEGER, `address` TEXT, `level` INTEGER, `user_type` INTEGER, `password` TEXT, `user_phone` TEXT, `is_open_shop` INTEGER, `user_desc` TEXT, `view_count` INTEGER NOT NULL, `like_count` INTEGER NOT NULL, `comment_count` INTEGER NOT NULL, PRIMARY KEY(`uid`))",
         "fields": [
           {
             "fieldPath": "uid",
@@ -109,6 +109,30 @@
             "columnName": "is_open_shop",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "user_desc",
+            "columnName": "user_desc",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "view_count",
+            "columnName": "view_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "like_count",
+            "columnName": "like_count",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "comment_count",
+            "columnName": "comment_count",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -124,7 +148,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '29bd9e7ea08f8058e70ae9f0e453dfcc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b771fef4dc773620c63fb725ef56bf41')"
     ]
   }
 }

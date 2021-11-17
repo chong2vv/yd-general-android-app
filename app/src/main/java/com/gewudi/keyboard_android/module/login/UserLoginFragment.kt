@@ -28,20 +28,14 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
             var user = it.getOrNull()
             user?.let {
                 Toast.makeText(context, user.username.toString(), Toast.LENGTH_SHORT).show()
+                XEventBus.post(EventName.LOGIN, user.uid)
+                activity?.finish()
             }
-
-//            var uid: Long? = it
-//            uid?.let {
-//                XEventBus.post(EventName.LOGIN, uid)
-////                Toast.makeText(this, uid.toString(), Toast.LENGTH_SHORT).show()
-//            }
         }
 
         viewBinding.loginCardView.setOnClickListener {
-//            val phoneString = viewBinding.phoneInputView.text.toString()
-//            val passwordString = viewBinding.passwordInputView.text.toString()
-            val phoneString = "15712921839"
-            val passwordString = "xinke308"
+            val phoneString = viewBinding.phoneInputView.text.toString()
+            val passwordString = viewBinding.passwordInputView.text.toString()
 
             if (phoneString.isEmpty()) {
                 Toast.makeText(context, "请输入手机号", Toast.LENGTH_SHORT).show()

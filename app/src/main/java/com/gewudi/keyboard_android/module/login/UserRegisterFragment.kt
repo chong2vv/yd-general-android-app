@@ -13,7 +13,7 @@ import com.gewudi.keyboard_android.eventbus.XEventBus
 import com.gewudi.keyboard_android.widget.NavigationView
 
 class UserRegisterFragment : BaseFragment<FragmentUserRegisterBinding>(FragmentUserRegisterBinding::inflate) {
-    private val viewModel: UserLoginViewModel by viewModels()
+    private val viewModel: UserRegisterViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,6 +25,8 @@ class UserRegisterFragment : BaseFragment<FragmentUserRegisterBinding>(FragmentU
             var user = it.getOrNull()
             user?.let {
                 Toast.makeText(context, user.username.toString(), Toast.LENGTH_SHORT).show()
+                XEventBus.post(EventName.LOGIN, user.uid)
+                activity?.finish()
             }
         }
 
@@ -52,7 +54,7 @@ class UserRegisterFragment : BaseFragment<FragmentUserRegisterBinding>(FragmentU
                 return@setOnClickListener
             }
 
-            viewModel.userLoginWithPhone(phoneString,passwordString)
+            viewModel.userRegisterWithPhone(phoneString,passwordString)
         }
 
         viewBinding.goToLoginView.setOnClickListener {

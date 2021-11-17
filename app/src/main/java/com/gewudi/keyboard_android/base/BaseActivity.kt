@@ -2,7 +2,11 @@ package com.gewudi.keyboard_android.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
+import android.view.View
+import android.widget.EditText
 import androidx.viewbinding.ViewBinding
+import com.blankj.utilcode.util.KeyboardUtils
 import com.gewudi.keyboard_android.R
 import com.gyf.immersionbar.ktx.immersionBar
 import io.reactivex.disposables.CompositeDisposable
@@ -62,4 +66,30 @@ abstract class BaseActivity<T : ViewBinding>(val inflater: (inflater: LayoutInfl
     protected fun addDisposable(disposable: Disposable) {
         compositeDisposable.add(disposable)
     }
+
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if (ev?.action == MotionEvent.ACTION_DOWN) {
+            var v: View? = currentFocus
+            v?.let {
+                if (isShouldHideKeyboard(v, ev)) {
+                    KeyboardUtils.hideSoftInput(this)
+                }
+            }
+        }
+        return super.dispatchTouchEvent(ev)
+    }
+
+    private fun isShouldHideKeyboard(v:View, event: MotionEvent): Boolean {
+        if (v is EditText) {
+            val l = intArrayOf(0,0)
+            v.getLocationOnScreen(l)
+            val left = l[0]
+            val top = l[1]
+            val bottom = top + v.height
+            val right = left + v.width
+            return !(event.rawX > left && event.rawX < right && event.rawY > top && event.rawY < bottom)
+        }
+        return false
+    }
+
 }
