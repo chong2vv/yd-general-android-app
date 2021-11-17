@@ -56,7 +56,9 @@ class HomeViewModel : BaseRecyclerViewModel() {
 //                    Test1ViewData("g-$time"),
 //                    Test2ViewData("h-$time"),
                 )
-            } else {
+            }
+
+            else {
                 // 在第5页模拟网络异常
                 if (page == 5) {
                     postError(isLoadMore)
@@ -75,21 +77,6 @@ class HomeViewModel : BaseRecyclerViewModel() {
             }
             postData(isLoadMore, viewDataList)
             // postError(isLoadMore)
-        }
-    }
-
-    //Test 接口测试
-    fun postTest() {
-        viewModelScope.launch {
-            val result = NetworkApi.requestPostTest("1010101", "15712921931","xinke308")
-            testLiveData.value = result
-        }
-    }
-
-    fun getTest() {
-        viewModelScope.launch {
-            val result = NetworkApi.requestPostTest("2020202","15712921313","xinke407")
-            test2LiveData.value = result
         }
     }
 

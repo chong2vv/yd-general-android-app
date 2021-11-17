@@ -14,8 +14,7 @@ class SmallVideoViewModel : BaseViewModel() {
 
     fun requestVideoDetail(id: String) {
         viewModelScope.launch {
-            val result = NetworkApi.requestVideoDetail(id)
-            helloWorldLiveData.value = result
+
         }
     }
 

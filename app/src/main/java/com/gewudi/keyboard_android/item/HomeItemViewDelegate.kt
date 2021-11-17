@@ -35,7 +35,7 @@ class HomeItemViewDelegate : BaseItemViewDelegate<HomeItemViewData, HomeItemView
         var width: Int = holder.viewBinding.cardImage.width
         var height: Int =  holder.viewBinding.cardImage.height
 //        height / width
-        println("width ======= "+ width)
+//        println("width ======= "+ width)
 //        if (scale > STANDARD_SCALE) {
 //            //采用3:4显示
 //            layoutParams.height = (itemWidth * SCALE).toInt()

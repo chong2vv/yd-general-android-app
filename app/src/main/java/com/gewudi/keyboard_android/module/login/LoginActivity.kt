@@ -1,22 +1,10 @@
 package com.gewudi.keyboard_android.module.login
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.fragment.app.FragmentManager
 import com.gewudi.keyboard_android.base.BaseActivity
-import com.gewudi.keyboard_android.constant.EventName
 import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.databinding.ActivityLoginBinding
-import com.gewudi.keyboard_android.eventbus.XEventBus
-import com.gewudi.keyboard_android.network.base.BaseNetworkApi
-import com.gewudi.keyboard_android.persistence.XKeyNameConst
-import com.gewudi.keyboard_android.persistence.XKeyValue
-import com.gewudi.keyboard_android.persistence.database.XDatabase
-import com.gewudi.keyboard_android.util.d
-import com.gewudi.keyboard_android.util.i
-import java.util.logging.Logger
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
