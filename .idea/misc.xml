@@ -15,12 +15,13 @@
         <entry key="app/src/main/res/layout/activity_about.xml" value="0.20833333333333334" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.3078125" />
-        <entry key="app/src/main/res/layout/activity_user_update.xml" value="0.3078125" />
+        <entry key="app/src/main/res/layout/activity_user_update.xml" value="0.16243654822335024" />
         <entry key="app/src/main/res/layout/fragment_acgn.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/fragment_gold.xml" value="0.10208333333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_small_video.xml" value="0.20833333333333334" />
+        <entry key="app/src/main/res/layout/fragment_user_info_change.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/fragment_user_login.xml" value="0.32760416666666664" />
         <entry key="app/src/main/res/layout/fragment_user_register.xml" value="0.3078125" />
         <entry key="app/src/main/res/layout/item_home.xml" value="0.20833333333333334" />
@@ -37,6 +38,8 @@
         <entry key="app/src/main/res/layout/view_tab_indicator.xml" value="0.10625" />
         <entry key="app/src/main/res/layout/view_title_value.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/view_x_recycler.xml" value="0.10625" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19895833333333332" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.19895833333333332" />
       </map>
     </option>
   </component>

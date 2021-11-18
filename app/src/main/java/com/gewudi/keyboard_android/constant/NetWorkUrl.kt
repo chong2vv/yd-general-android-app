@@ -15,6 +15,9 @@ annotation class NetWorkUrl {
         const val USER_REGISTER_PASSWORD = "user/user_register_password.json"
         //手机号密码登录
         const val USER_LOGIN_PASSWORD = "user/password_login.json"
+        //用户更新手机号
+        const val USER_UPDATE = "user/update.json"
+
 
         /**
          * 文章相关

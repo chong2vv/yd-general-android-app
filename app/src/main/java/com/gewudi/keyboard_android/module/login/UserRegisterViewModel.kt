@@ -18,7 +18,7 @@ class UserRegisterViewModel : BaseViewModel() {
 
     fun  userRegisterWithPhone(phone: String, password:String) {
         viewModelScope.launch {
-            val result = UserNetworkApi.requestUserPasswordLogin(phone, password)
+            val result = UserNetworkApi.requestUserRegisterPassword(phone, password)
             var user = result.getOrNull()
             user?.let {
                 XDatabase.userDao().insert(user)

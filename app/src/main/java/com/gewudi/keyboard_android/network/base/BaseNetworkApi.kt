@@ -5,6 +5,7 @@ import com.gewudi.keyboard_android.bean.exception.NetworkException
 import com.gewudi.keyboard_android.constant.ErrorCode
 import com.gewudi.keyboard_android.network.interceptor.CommonRequestInterceptor
 import com.gewudi.keyboard_android.network.interceptor.CommonResponseInterceptor
+import com.gewudi.keyboard_android.network.interceptor.UIDRequestInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,6 +42,7 @@ abstract class BaseNetworkApi<I>(private val baseUrl: String) : IService<I> {
         if (null != okHttpClient) {
             return okHttpClient
         }
+        defaultOkHttpClient.newBuilder().addInterceptor(UIDRequestInterceptor()).build()
         return defaultOkHttpClient
     }
 

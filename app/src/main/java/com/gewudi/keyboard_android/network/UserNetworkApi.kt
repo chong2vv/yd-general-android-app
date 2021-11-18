@@ -26,4 +26,13 @@ object UserNetworkApi : BaseNetworkApi<IUserNetworkService>(NetWorkUrl.BASE_URL)
         UserNetworkApi.service.requestUserPasswordLogin(formBody)
     }
 
+    //更新用户信息
+    suspend fun requestUserUpdate(field_name:String, field_value:String) = UserNetworkApi.getResult {
+        val formBody: FormBody = FormBody.Builder()
+            .add("field_name",field_name)
+            .add("field_value", field_value)
+            .build()
+        UserNetworkApi.service.requestUserUpdate(formBody)
+    }
+
 }
