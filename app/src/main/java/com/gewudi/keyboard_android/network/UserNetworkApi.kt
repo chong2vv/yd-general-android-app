@@ -35,4 +35,8 @@ object UserNetworkApi : BaseNetworkApi<IUserNetworkService>(NetWorkUrl.BASE_URL)
         UserNetworkApi.service.requestUserUpdate(formBody)
     }
 
+    suspend fun requestUserShow() = UserNetworkApi.getResult {
+        UserNetworkApi.service.requestUserShow()
+    }
+
 }

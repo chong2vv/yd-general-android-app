@@ -36,6 +36,9 @@ versions.immersionbar = "3.0.0"
 versions.swipebacklayout = "1.1.0"
 versions.ptr = "1.0.11"
 versions.loadingview = "1.0"
+versions.roundedimageview = "2.3.0"
+versions.pictureSelector = "v2.7.3-rc10"
+versions.utilcodex = "1.30.6"
 ext.versions = versions
 
 /**

@@ -31,6 +31,7 @@ import kotlinx.coroutines.launch
 class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::inflate) {
 
     private val viewModel: MineViewModel by viewModels()
+    private var user:User = User()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,6 +39,9 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     }
 
     private fun initView() {
+
+        //同步用户信息
+        syncUserInfo()
 
         viewBinding.userFaceImage.setOnClickListener {
             val uid = XKeyValue.getLong(Key.USER_ID)
@@ -48,18 +52,15 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
             }
         }
 
-        setCountViewTitle()
-
         XEventBus.observe(viewLifecycleOwner, EventName.LOGIN) { message: Long ->
-            val uid = message
-            lifecycleScope.launch {
-               var user = XDatabase.userDao().findByUid(uid)
-                user.let {
-                    viewBinding.nameView.text = user.username
-                    viewBinding.descView.text = user.user_desc
-                }
-            }
+            syncUserInfo()
         }
+
+        viewModel.userLiveData.observe(viewLifecycleOwner) {
+            syncUserInfo()
+        }
+
+        setCountViewTitle()
 
         viewBinding.rvList.init(
             XRecyclerView.Config()
@@ -73,6 +74,19 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
                     }
                 })
         )
+    }
+
+    private fun syncUserInfo() {
+        lifecycleScope.launch {
+            val uid = XKeyValue.getLong(Key.USER_ID)
+            uid.let {
+                user = XDatabase.userDao().findByUid(uid)
+                user.let {
+                    viewBinding.nameView.text = user.username
+                    viewBinding.descView.text = user.user_desc
+                }
+            }
+        }
     }
 
     private fun setCountViewTitle() {

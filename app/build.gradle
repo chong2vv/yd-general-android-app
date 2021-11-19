@@ -152,8 +152,13 @@ dependencies {
     // 下拉刷新
     implementation("in.srain.cube:ultra-ptr:${versions.ptr}")
 
-    implementation('com.blankj:utilcodex:1.30.6')
+    // 通用工具库
+    implementation("com.blankj:utilcodex:${versions.utilcodex}")
 
+    // 圆形iamge库
+    implementation("com.makeramen:roundedimageview:${versions.roundedimageview}")
+
+    implementation("io.github.lucksiege:pictureselector:${versions.pictureSelector}")
     // 加载动画
     implementation("com.ldoublem.loadingview:loadingviewlib:${versions.loadingview}")
 }

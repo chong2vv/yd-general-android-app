@@ -20,4 +20,6 @@ interface IUserNetworkService {
     //登录
     @POST(NetWorkUrl.USER_UPDATE)
     suspend fun requestUserUpdate(@Body body: FormBody): BaseResponse<User>
+    @POST(NetWorkUrl.USER_SHOW)
+    suspend fun requestUserShow():BaseResponse<User>
 }
