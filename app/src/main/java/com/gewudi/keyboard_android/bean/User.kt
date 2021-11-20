@@ -30,9 +30,9 @@ data class User(
     @ColumnInfo var user_phone: String?,
     @ColumnInfo var is_open_shop: Int?,
     @ColumnInfo var user_desc: String?,
-    @ColumnInfo var view_count:Int,
+    @ColumnInfo var focus_count:Int,
     @ColumnInfo var like_count:Int,
-    @ColumnInfo var comment_count:Int,
+    @ColumnInfo var fans_count:Int,
 
 
 ) {

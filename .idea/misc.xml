@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.3078125" />
         <entry key="app/src/main/res/layout/activity_user_info_change.xml" value="0.184375" />
+        <entry key="app/src/main/res/layout/activity_user_list.xml" value="0.2796875" />
         <entry key="app/src/main/res/layout/activity_user_update.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_acgn.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/fragment_gold.xml" value="0.10208333333333333" />
@@ -33,6 +34,7 @@
         <entry key="app/src/main/res/layout/item_test1.xml" value="0.10208333333333333" />
         <entry key="app/src/main/res/layout/item_test2.xml" value="0.2557291666666667" />
         <entry key="app/src/main/res/layout/item_test3.xml" value="0.2557291666666667" />
+        <entry key="app/src/main/res/layout/item_user_list.xml" value="0.34479166666666666" />
         <entry key="app/src/main/res/layout/item_user_update.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/view_error.xml" value="0.10208333333333333" />
         <entry key="app/src/main/res/layout/view_loading.xml" value="0.10208333333333333" />

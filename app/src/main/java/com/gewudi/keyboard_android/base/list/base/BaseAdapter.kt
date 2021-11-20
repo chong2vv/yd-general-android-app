@@ -13,6 +13,7 @@ open class BaseAdapter : MultiTypeAdapter() {
         register(HomeItemViewDelegate())
         register(MineSettingItemViewDelegate())
         register(UserUpdateItemViewDelegate())
+        register(UserListItemViewDelegate())
     }
 
     open fun setViewData(viewData: List<BaseViewData<*>>) {

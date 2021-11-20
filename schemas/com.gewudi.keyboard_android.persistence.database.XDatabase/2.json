@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "b771fef4dc773620c63fb725ef56bf41",
+    "identityHash": "f90ab313b295eac187a31e50dd5f3e06",
     "entities": [
       {
         "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER, `oid` INTEGER, `oid_type` INTEGER, `username` TEXT, `user_profile_pic` TEXT, `gender` INTEGER, `age` INTEGER, `is_exist` INTEGER, `created_at` INTEGER, `user_tag` TEXT, `level_value` INTEGER, `address` TEXT, `level` INTEGER, `user_type` INTEGER, `password` TEXT, `user_phone` TEXT, `is_open_shop` INTEGER, `user_desc` TEXT, `view_count` INTEGER NOT NULL, `like_count` INTEGER NOT NULL, `comment_count` INTEGER NOT NULL, PRIMARY KEY(`uid`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`uid` INTEGER, `oid` INTEGER, `oid_type` INTEGER, `username` TEXT, `user_profile_pic` TEXT, `gender` INTEGER, `age` INTEGER, `is_exist` INTEGER, `created_at` INTEGER, `user_tag` TEXT, `level_value` INTEGER, `address` TEXT, `level` INTEGER, `user_type` INTEGER, `password` TEXT, `user_phone` TEXT, `is_open_shop` INTEGER, `user_desc` TEXT, `focus_count` INTEGER NOT NULL, `like_count` INTEGER NOT NULL, `fans_count` INTEGER NOT NULL, PRIMARY KEY(`uid`))",
         "fields": [
           {
             "fieldPath": "uid",
@@ -117,8 +117,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "view_count",
-            "columnName": "view_count",
+            "fieldPath": "focus_count",
+            "columnName": "focus_count",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -129,8 +129,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "comment_count",
-            "columnName": "comment_count",
+            "fieldPath": "fans_count",
+            "columnName": "fans_count",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -148,7 +148,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b771fef4dc773620c63fb725ef56bf41')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f90ab313b295eac187a31e50dd5f3e06')"
     ]
   }
 }

@@ -55,7 +55,6 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
                     "选择图片方式:", arrayOf("手机拍照", "相册选择")
                 ) { position, text ->
                     run {
-                        Toast.makeText(context, "点击了 ===== "+position, Toast.LENGTH_SHORT).show()
                         when(position){
                             0 -> chooseImageForCamera()
                             1 -> chooseImageForPhotoAlbum()

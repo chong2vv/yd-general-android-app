@@ -18,12 +18,20 @@ import com.gewudi.keyboard_android.module.about.AboutActivity
 import com.gewudi.keyboard_android.module.login.LoginActivity
 import com.gewudi.keyboard_android.constant.EventName
 import com.gewudi.keyboard_android.constant.Key
+import com.gewudi.keyboard_android.constant.UserListType
 import com.gewudi.keyboard_android.eventbus.XEventBus
+import com.gewudi.keyboard_android.module.user.UserListActivity
 import com.gewudi.keyboard_android.module.user.UserUpdateActivity
 import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
 import com.gewudi.keyboard_android.widget.TitleValueView
 import kotlinx.coroutines.launch
+import com.lxj.xpopup.interfaces.OnConfirmListener
+
+import com.lxj.xpopup.XPopup
+
+
+
 
 /**
  * 我的
@@ -90,10 +98,35 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     }
 
     private fun setCountViewTitle() {
-//        viewBinding.likeCountView.setParameter(TitleValueView.ParameterBuilder().setTitle().setValue())
+        //用户所关注人数，点击跳转用户列表
         viewBinding.likeCountView.setTitleStr("关注数")
+        viewBinding.likeCountView.setOnClickListener {
+            var intent = Intent(activity, UserListActivity::class.java)
+            intent.putExtra("Type",UserListType.USER_LIKE)
+            startActivity(intent)
+        }
+        //用户粉丝数，点击跳转用户列表
         viewBinding.fansCountView.setTitleStr("粉丝数")
+        viewBinding.fansCountView.setOnClickListener {
+            var intent = Intent(activity, UserListActivity::class.java)
+            intent.putExtra("Type",UserListType.USER_FANS)
+            startActivity(intent)
+        }
+        //用户获赞数，点击弹出用户获赞Dialog
         viewBinding.collectCountView.setTitleStr("获赞数")
+        viewBinding.collectCountView.setOnClickListener {
+            XPopup.Builder(context) //                        .hasNavigationBar(false)
+                //                        .hasStatusBar(false)
+                .isDestroyOnDismiss(true) //                        .dismissOnBackPressed(false)
+                //                        .isViewMode(true)
+                //                        .hasBlurBg(true)
+                //                         .autoDismiss(false)
+                //                        .popupAnimation(PopupAnimation.NoAnimation)
+                .asConfirm("恭喜你！", "你当前以获得${user.like_count}点赞。",
+                    "取消", "确定",
+                    { }, null, false
+                ).show()
+        }
     }
 
 

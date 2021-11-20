@@ -58,6 +58,10 @@
         <activity android:name=".module.user.UserUpdateActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme"/>
+
+        <activity android:name=".module.user.UserListActivity"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/ActivityTheme"/>
     </application>
 
 </manifest>
