@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../../layout/custom_preview.xml" value="0.12864583333333332" />
+        <entry key="../../../.gradle/caches/transforms-3/cb68f11164035072b1c9b244a29c7b58/transformed/jetified-pictureselector-v2.7.3-rc10/res/drawable/picture_image_placeholder.xml" value="0.19895833333333332" />
+        <entry key="../../../.gradle/caches/transforms-3/eedf6d01c67ae676111173cc2a084362/transformed/jetified-android-pickers-2.0.0/res/layout/layout_date_range_picker.xml" value="0.3278985507246377" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.19895833333333332" />
         <entry key="app/src/main/res/drawable/selector_btn_acgn.xml" value="0.19895833333333332" />

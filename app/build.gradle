@@ -94,6 +94,7 @@ dependencies {
     implementation("androidx.room:room-runtime:${versions.androidx_room}")
     implementation("androidx.room:room-rxjava2:${versions.androidx_room}")
     implementation("androidx.room:room-ktx:${versions.androidx_room}")
+    implementation("androidx.core:core:${versions.androidx_camera}")
     kapt("androidx.room:room-compiler:${versions.androidx_room}")
     implementation("androidx.work:work-runtime:${versions.androidx_work_manager}")
     implementation("androidx.work:work-runtime-ktx:${versions.androidx_work_manager}")
@@ -149,11 +150,17 @@ dependencies {
     // 右滑返回
     implementation("me.imid.swipebacklayout.lib:library:${versions.swipebacklayout}")
 
+    // 弹框
+    implementation("com.github.li-xiaojun:XPopup:${versions.xpopup}")
+
     // 下拉刷新
     implementation("in.srain.cube:ultra-ptr:${versions.ptr}")
 
     // 通用工具库
     implementation("com.blankj:utilcodex:${versions.utilcodex}")
+
+    // 选择器
+//    implementation("com.github.addappcn:android-pickers:${versions.pickers}")
 
     // 圆形iamge库
     implementation("com.makeramen:roundedimageview:${versions.roundedimageview}")
