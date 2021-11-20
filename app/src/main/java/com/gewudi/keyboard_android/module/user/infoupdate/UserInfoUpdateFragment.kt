@@ -2,11 +2,13 @@ package com.gewudi.keyboard_android.module.user.infoupdate
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.ImageUtils
 import com.gewudi.keyboard_android.base.BaseFragment
 import com.gewudi.keyboard_android.base.list.XRecyclerView
 import com.gewudi.keyboard_android.base.list.base.BaseViewData
@@ -16,6 +18,7 @@ import com.gewudi.keyboard_android.constant.UserUpdateType
 import com.gewudi.keyboard_android.databinding.FragmentUserUpdateBinding
 import com.gewudi.keyboard_android.module.login.UserRegisterFragment
 import com.gewudi.keyboard_android.util.GlideEngine
+import com.gewudi.keyboard_android.util.setImageUrl
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
@@ -25,11 +28,7 @@ import com.lxj.xpopup.XPopup
 import com.luck.picture.lib.entity.LocalMedia
 
 import com.luck.picture.lib.listener.OnResultCallbackListener
-
-
-
-
-
+import java.io.File
 
 
 class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
@@ -120,6 +119,7 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
         PictureSelector.create(this)
             .openCamera(PictureMimeType.ofImage())
             .imageEngine(GlideEngine.createGlideEngine())
+            .selectionMode(PictureConfig.SINGLE)
             .forResult(object : OnResultCallbackListener<LocalMedia?> {
                 override fun onResult(result: List<LocalMedia?>) {
                     // 结果回调
@@ -134,11 +134,19 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
     fun chooseImageForPhotoAlbum() {
         PictureSelector.create(this)
             .openGallery(PictureMimeType.ofImage())
-            .imageEngine(GlideEngine.createGlideEngine()) // 请参考Demo GlideEngine.java
+            .imageEngine(GlideEngine.createGlideEngine())
+            .selectionMode(PictureConfig.SINGLE)
+            .isEnableCrop(true)
+            .cropImageWideHigh(100,100)
+            .withAspectRatio(1,1)
             .forResult(object : OnResultCallbackListener<LocalMedia?> {
                 override fun onResult(result: List<LocalMedia?>) {
                     // 结果回调
                     print("回调啦~~~~")
+                    val picModel = result[0]
+                    picModel.let {
+                        viewBinding.userFaceImage.setImageBitmap(ImageUtils.getBitmap(it?.realPath))
+                    }
                 }
 
                 override fun onCancel() {
