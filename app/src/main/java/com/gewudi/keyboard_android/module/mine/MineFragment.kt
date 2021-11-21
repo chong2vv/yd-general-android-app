@@ -24,6 +24,7 @@ import com.gewudi.keyboard_android.module.user.UserListActivity
 import com.gewudi.keyboard_android.module.user.UserUpdateActivity
 import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
+import com.gewudi.keyboard_android.service.userservice.UserService
 import com.gewudi.keyboard_android.widget.TitleValueView
 import kotlinx.coroutines.launch
 import com.lxj.xpopup.interfaces.OnConfirmListener
@@ -49,7 +50,9 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     private fun initView() {
 
         //同步用户信息
-        syncUserInfo()
+        if (UserService.instance.getUid() > 0){
+            syncUserInfo()
+        }
 
         viewBinding.userFaceImage.setOnClickListener {
             val uid = XKeyValue.getLong(Key.USER_ID)
@@ -86,13 +89,10 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
 
     private fun syncUserInfo() {
         lifecycleScope.launch {
-            val uid = XKeyValue.getLong(Key.USER_ID)
-            uid.let {
-                user = XDatabase.userDao().findByUid(uid)
-                user.let {
-                    viewBinding.nameView.text = user.username
-                    viewBinding.descView.text = user.user_desc
-                }
+            user = XDatabase.userDao().findByUid(UserService.instance.getUid())
+            user.let {
+                viewBinding.nameView.text = user.username
+                viewBinding.descView.text = user.user_desc
             }
         }
     }

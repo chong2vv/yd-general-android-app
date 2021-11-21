@@ -2,6 +2,7 @@ package com.gewudi.keyboard_android.network
 
 import com.gewudi.keyboard_android.constant.NetWorkUrl
 import com.gewudi.keyboard_android.network.base.BaseNetworkApi
+import com.gewudi.keyboard_android.service.userservice.UserService
 import okhttp3.FormBody
 
 object UserNetworkApi : BaseNetworkApi<IUserNetworkService>(NetWorkUrl.BASE_URL)  {
@@ -32,7 +33,7 @@ object UserNetworkApi : BaseNetworkApi<IUserNetworkService>(NetWorkUrl.BASE_URL)
             .add("field_name",field_name)
             .add("field_value", field_value)
             .build()
-        UserNetworkApi.service.requestUserUpdate(formBody)
+        UserNetworkApi.service.requestUserUpdate(UserService.instance.getUid(),formBody)
     }
 
     suspend fun requestUserShow() = UserNetworkApi.getResult {

@@ -13,7 +13,7 @@ import androidx.room.PrimaryKey
 data class User(
     // 主键分配自动ID
     @PrimaryKey var uid: Long?,
-    @ColumnInfo var oid: Long?,
+    @ColumnInfo var oid: String?,
     @ColumnInfo var oid_type: Int?,
     @ColumnInfo var username: String?,
     @ColumnInfo var user_profile_pic: String?,
@@ -36,7 +36,7 @@ data class User(
 
 
 ) {
-    constructor() : this(0, 0, 0, "","",0,0,
+    constructor() : this(0, "", 0, "","",0,0,
         true, 0,"",0,"",0,0,"","",0,"",0,0,0
     ) {
 

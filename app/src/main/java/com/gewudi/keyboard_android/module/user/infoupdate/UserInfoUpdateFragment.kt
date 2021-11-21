@@ -13,9 +13,11 @@ import com.gewudi.keyboard_android.base.BaseFragment
 import com.gewudi.keyboard_android.base.list.XRecyclerView
 import com.gewudi.keyboard_android.base.list.base.BaseViewData
 import com.gewudi.keyboard_android.bean.UserUpdateBean
+import com.gewudi.keyboard_android.constant.EventName
 import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.constant.UserUpdateType
 import com.gewudi.keyboard_android.databinding.FragmentUserUpdateBinding
+import com.gewudi.keyboard_android.eventbus.XEventBus
 import com.gewudi.keyboard_android.module.login.UserRegisterFragment
 import com.gewudi.keyboard_android.util.GlideEngine
 import com.gewudi.keyboard_android.util.setImageUrl
@@ -66,6 +68,10 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
                 }.show()
         }
 
+        XEventBus.observe(viewLifecycleOwner, EventName.LOGIN) { message: Long ->
+            viewModel.loadData(false,true,0)
+        }
+
         viewBinding.rvList.init(
             XRecyclerView.Config()
                 .setPullRefreshEnable(false)
@@ -103,7 +109,7 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
                             fragment.arguments = bundle
 
                             parentFragmentManager.beginTransaction()
-                                .add(fragmentId, UserInfoChangeFragment())
+                                .replace(fragmentId, fragment)
                                 .addToBackStack(null)
                                 .commit()
 
