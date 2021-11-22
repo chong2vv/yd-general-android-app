@@ -152,6 +152,7 @@ dependencies {
 
     // 弹框
     implementation("com.github.li-xiaojun:XPopup:${versions.xpopup}")
+    implementation("com.github.li-xiaojun:XPopupExt:${versions.xpopupExt}")
 
     // 下拉刷新
     implementation("in.srain.cube:ultra-ptr:${versions.ptr}")
@@ -162,9 +163,11 @@ dependencies {
     // 选择器
 //    implementation("com.github.addappcn:android-pickers:${versions.pickers}")
 
+
     // 圆形iamge库
     implementation("com.makeramen:roundedimageview:${versions.roundedimageview}")
 
+    //图片选择
     implementation("io.github.lucksiege:pictureselector:${versions.pictureSelector}")
     // 加载动画
     implementation("com.ldoublem.loadingview:loadingviewlib:${versions.loadingview}")

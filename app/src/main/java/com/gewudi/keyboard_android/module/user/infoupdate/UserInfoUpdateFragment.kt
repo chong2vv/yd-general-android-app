@@ -4,6 +4,7 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -24,13 +25,23 @@ import com.gewudi.keyboard_android.util.setImageUrl
 import com.luck.picture.lib.PictureSelector
 import com.luck.picture.lib.config.PictureConfig
 import com.luck.picture.lib.config.PictureMimeType
-import com.lxj.xpopup.interfaces.OnSelectListener
 
 import com.lxj.xpopup.XPopup
 import com.luck.picture.lib.entity.LocalMedia
 
 import com.luck.picture.lib.listener.OnResultCallbackListener
-import java.io.File
+
+import com.lxj.xpopupext.listener.TimePickerListener
+
+import com.lxj.xpopupext.popup.TimePickerPopup
+import java.util.*
+
+import com.lxj.xpopupext.listener.CityPickerListener
+
+import com.lxj.xpopupext.popup.CityPickerPopup
+
+
+
 
 
 class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
@@ -93,10 +104,14 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
                                     bundle.putString("field_key","user_desc")
                                 }
                                 UserUpdateType.USER_ADDRESS -> {
-                                    bundle.putString("field_key","address")
+                                    //地址则当前页面直接弹出地址选择器
+                                    showAddressChoose()
+                                    return
                                 }
                                 UserUpdateType.USER_AGE -> {
-                                    bundle.putString("field_key","age")
+                                    //年龄则当前页面直接弹出时间选择器
+                                    showDateChoose()
+                                    return
                                 }
                                 UserUpdateType.USER_GENDER -> {
                                     bundle.putString("field_key","gender")
@@ -120,6 +135,58 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
         )
 
     }
+
+    fun showDateChoose() {
+        val date: Calendar = Calendar.getInstance()
+        date.set(2000, 5, 1)
+        val date2: Calendar = Calendar.getInstance()
+        date2.set(2020, 5, 1)
+        val popup =
+            activity?.let {
+                TimePickerPopup(it) //                        .setDefaultDate(date)  //设置默认选中日期
+                    //                        .setYearRange(1990, 1999) //设置年份范围
+                    //                        .setDateRange(date, date2) //设置日期范围
+                    .setTimePickerListener(object : TimePickerListener {
+                        override fun onTimeChanged(date: Date?) {
+                            //时间改变
+                        }
+
+                        override fun onTimeConfirm(date: Date, view: View?) {
+                            //点击确认时间
+                            Toast.makeText(
+                                it,
+                                "选择的时间：" + date.toLocaleString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    })
+            }
+
+        XPopup.Builder(activity)
+            .asCustom(popup)
+            .show()
+    }
+
+    fun showAddressChoose() {
+        val popup = activity?.let { CityPickerPopup(it) }
+        popup?.setCityPickerListener(object : CityPickerListener {
+            override fun onCityConfirm(province: String, city: String, area: String, v: View) {
+                Log.e("tag", "$province - $city - $area")
+                Toast.makeText(activity, "$province - $city - $area", Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onCityChange(province: String, city: String, area: String) {
+                Log.e("tag", "$province - $city - $area")
+                Toast.makeText(activity, "$province - $city - $area", Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+        XPopup.Builder(activity)
+            .asCustom(popup)
+            .show()
+    }
+
 
     fun chooseImageForCamera() {
         PictureSelector.create(this)

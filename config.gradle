@@ -42,6 +42,7 @@ versions.pictureSelector = "v2.7.3-rc10"
 versions.utilcodex = "1.30.6"
 versions.pickers = "2.0.0"
 versions.xpopup = "2.6.7"
+versions.xpopupExt = "0.0.8"
 ext.versions = versions
 
 /**
