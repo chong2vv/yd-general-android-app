@@ -50,9 +50,10 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
             XPopup.Builder(context)
                 .isDarkTheme(true)
                 .hasShadowBg(true)
-                .isViewMode(true) //                        .enableDrag(false)
-                //                            .hasBlurBg(true)
-                //                            .isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
+                .isViewMode(true)
+                //.enableDrag(false)
+                //.hasBlurBg(true)
+                //.isDestroyOnDismiss(true) //对于只使用一次的弹窗，推荐设置这个
                 .asBottomList(
                     "选择图片方式:", arrayOf("手机拍照", "相册选择")
                 ) { position, text ->
