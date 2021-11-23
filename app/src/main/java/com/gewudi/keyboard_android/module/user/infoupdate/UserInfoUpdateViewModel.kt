@@ -13,15 +13,20 @@ import com.gewudi.keyboard_android.item.UserUpdateItemViewData
 import com.gewudi.keyboard_android.network.UserNetworkApi
 import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
+import com.gewudi.keyboard_android.service.userservice.UserService
 import kotlinx.coroutines.launch
 
 class UserInfoUpdateViewModel : BaseRecyclerViewModel() {
     val userLiveData = MutableLiveData<Result<User>>()
+
+    /**
+     * 获取用户本地信息展示
+     */
     override fun loadData(isLoadMore: Boolean, isReLoad: Boolean, page: Int) {
         viewModelScope.launch {
-            val uid = XKeyValue.getLong(Key.USER_ID)
-            if (uid > 0) {
-                val user: User = XDatabase.userDao().findByUid(uid)
+
+            if (UserService.instance.isLogin()) {
+                val user: User = UserService.instance.getCurrentUser()
                 user?.let {
                     val viewDataList: List<BaseViewData<*>> = listOf<BaseViewData<*>>(
                         UserUpdateItemViewData(
@@ -62,17 +67,16 @@ class UserInfoUpdateViewModel : BaseRecyclerViewModel() {
         }
     }
 
+    /**
+     * 更新用户信息，头像、地址、生日等
+     */
     fun  userInfoUpdate(key: String, value:String) {
 
         viewModelScope.launch {
             val result = UserNetworkApi.requestUserUpdate(key, value)
             var user = result.getOrNull()
             user?.let {
-                XDatabase.userDao().insert(user)
-
-                user.uid?.let {
-                    XKeyValue.putLong(Key.USER_ID, it)
-                }
+                UserService.instance.updateCurrentUser(user)
             }
             userLiveData.value = result
         }

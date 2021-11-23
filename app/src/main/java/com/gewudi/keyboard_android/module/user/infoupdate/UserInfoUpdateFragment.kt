@@ -80,8 +80,8 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
                 }.show()
         }
 
-        XEventBus.observe(viewLifecycleOwner, EventName.LOGIN) { message: Long ->
-            viewModel.loadData(false,true,0)
+        XEventBus.observe(viewLifecycleOwner, EventName.USER_UPDATE) { message: Long ->
+            viewModel.loadData(isLoadMore = false, isReLoad = true, page = 0)
         }
 
         viewBinding.rvList.init(
@@ -136,6 +136,9 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
 
     }
 
+    /**
+     * 点击时间选择
+     */
     fun showDateChoose() {
         val date: Calendar = Calendar.getInstance()
         date.set(2000, 5, 1)
@@ -167,6 +170,9 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
             .show()
     }
 
+    /**
+     * 点击地址选择
+     */
     fun showAddressChoose() {
         val popup = activity?.let { CityPickerPopup(it) }
         popup?.setCityPickerListener(object : CityPickerListener {
@@ -188,6 +194,9 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
     }
 
 
+    /**
+     * 头像，通过相机拍摄选择
+     */
     fun chooseImageForCamera() {
         PictureSelector.create(this)
             .openCamera(PictureMimeType.ofImage())
@@ -204,6 +213,9 @@ class UserInfoUpdateFragment : BaseFragment<FragmentUserUpdateBinding>(
             })
     }
 
+    /**
+     * 头像，通过相册选择
+     */
     fun chooseImageForPhotoAlbum() {
         PictureSelector.create(this)
             .openGallery(PictureMimeType.ofImage())

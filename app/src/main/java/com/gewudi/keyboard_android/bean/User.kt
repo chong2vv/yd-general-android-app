@@ -11,9 +11,11 @@ import androidx.room.PrimaryKey
 // 定义表名称，SQLite 中的表名称不区分大小写
 @Entity(tableName = "user")
 data class User(
-    // 主键分配自动ID
+    // 主键分配自动ID uid
     @PrimaryKey var uid: Long?,
+    // 第三方id
     @ColumnInfo var oid: String?,
+    //注册类型
     @ColumnInfo var oid_type: Int?,
     @ColumnInfo var username: String?,
     @ColumnInfo var user_profile_pic: String?,

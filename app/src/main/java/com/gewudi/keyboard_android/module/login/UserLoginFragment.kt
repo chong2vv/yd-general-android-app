@@ -24,15 +24,18 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
     }
 
     private fun initView() {
+
+        //用户登录成功回调
         viewModel.userLiveData.observe(viewLifecycleOwner) {
             var user = it.getOrNull()
             user?.let {
                 Toast.makeText(context, user.username.toString(), Toast.LENGTH_SHORT).show()
-                XEventBus.post(EventName.LOGIN, user.uid)
+                XEventBus.post(EventName.USER_UPDATE, user.uid)
                 activity?.finish()
             }
         }
 
+        //用户点击登录
         viewBinding.loginCardView.setOnClickListener {
             val phoneString = viewBinding.phoneInputView.text.toString()
             val passwordString = viewBinding.passwordInputView.text.toString()
@@ -51,8 +54,7 @@ class UserLoginFragment : BaseFragment<FragmentUserLoginBinding>(FragmentUserLog
             viewModel.userLoginWithPhone(phoneString,passwordString)
         }
 
-
-
+        //点击去注册
         viewBinding.goToRegisterView.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .add(this.id, UserRegisterFragment())

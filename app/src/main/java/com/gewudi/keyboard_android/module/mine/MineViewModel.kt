@@ -13,6 +13,7 @@ import com.gewudi.keyboard_android.item.MineSettingItemViewData
 import com.gewudi.keyboard_android.network.UserNetworkApi
 import com.gewudi.keyboard_android.persistence.XKeyValue
 import com.gewudi.keyboard_android.persistence.database.XDatabase
+import com.gewudi.keyboard_android.service.userservice.UserService
 import kotlinx.coroutines.launch
 
 class MineViewModel : BaseRecyclerViewModel() {
@@ -21,12 +22,11 @@ class MineViewModel : BaseRecyclerViewModel() {
     override fun loadData(isLoadMore: Boolean, isReLoad: Boolean, page: Int) {
         viewModelScope.launch {
 
-            val uid = XKeyValue.getLong(Key.USER_ID)
-            uid.let {
+            if (UserService.instance.isLogin()) {
                 val result = UserNetworkApi.requestUserShow()
                 var user = result.getOrNull()
                 user?.let {
-                    XDatabase.userDao().insert(it)
+                    UserService.instance.updateCurrentUser(it)
                     userLiveData.value = it
                 }
             }

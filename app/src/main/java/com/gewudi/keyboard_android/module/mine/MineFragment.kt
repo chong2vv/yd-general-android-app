@@ -50,29 +50,34 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
     private fun initView() {
 
         //同步用户信息
-        if (UserService.instance.getUid() > 0){
+        if (UserService.instance.isLogin()) {
             syncUserInfo()
         }
 
         viewBinding.userFaceImage.setOnClickListener {
-            val uid = XKeyValue.getLong(Key.USER_ID)
-            if (uid > 0) {
-                startActivity(Intent(activity, UserUpdateActivity::class.java))
-            }else {
-                startActivity(Intent(activity, LoginActivity::class.java))
+            when(UserService.instance.isLogin()) {
+                true -> {
+                    startActivity(Intent(activity, UserUpdateActivity::class.java))
+                }
+                false -> {
+                    startActivity(Intent(activity, LoginActivity::class.java))
+                }
             }
         }
 
-        XEventBus.observe(viewLifecycleOwner, EventName.LOGIN) { message: Long ->
+        //接到消息，同步本地数据库信息到UI
+        XEventBus.observe(viewLifecycleOwner, EventName.USER_UPDATE) { message: Long ->
             syncUserInfo()
         }
 
+        //请求服务端最新用户信息后同步本地数据库信息到UI
         viewModel.userLiveData.observe(viewLifecycleOwner) {
             syncUserInfo()
         }
 
         setCountViewTitle()
 
+        //点击cell
         viewBinding.rvList.init(
             XRecyclerView.Config()
                 .setPullRefreshEnable(false)
@@ -87,9 +92,12 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
         )
     }
 
+    /**
+     * 同步用户本地信息
+     */
     private fun syncUserInfo() {
         lifecycleScope.launch {
-            user = XDatabase.userDao().findByUid(UserService.instance.getUid())
+            user = UserService.instance.getCurrentUser()
             user.let {
                 viewBinding.nameView.text = user.username
                 viewBinding.descView.text = user.user_desc
@@ -97,6 +105,9 @@ class MineFragment : BaseFragment<FragmentMineBinding>(FragmentMineBinding::infl
         }
     }
 
+    /**
+     * 设置用户点赞、粉丝、关注等数，添加点击方法
+     */
     private fun setCountViewTitle() {
         //用户所关注人数，点击跳转用户列表
         viewBinding.likeCountView.setTitleStr("关注数")

@@ -45,6 +45,9 @@ class UserInfoChangeFragment : BaseFragment<FragmentUserInfoChangeBinding>(Fragm
             fileName?.let { it1 -> viewModel.userInfoUpdate(it1, value.toString()) }
         }
 
+        /**
+         * 更新成功回调
+         */
         viewModel.userLiveData.observe(viewLifecycleOwner) {
 
             if (it.isFailure) {
@@ -52,7 +55,7 @@ class UserInfoChangeFragment : BaseFragment<FragmentUserInfoChangeBinding>(Fragm
             }else{
                 var user = it.getOrNull()
                 user?.let {
-                    XEventBus.post(EventName.LOGIN, user.uid)
+                    XEventBus.post(EventName.USER_UPDATE, user.uid)
                     parentFragmentManager.beginTransaction()
                         .replace(this.id, UserInfoUpdateFragment())
                         .addToBackStack(null)
