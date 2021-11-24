@@ -6,7 +6,7 @@ import com.gewudi.keyboard_android.service.userservice.UserService
 import okhttp3.FormBody
 
 /**
- * 用户相关
+ * 用户相关网络请求具体实现
  */
 object UserNetworkApi : BaseNetworkApi<IUserNetworkService>(NetWorkUrl.BASE_URL)  {
 

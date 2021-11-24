@@ -12,6 +12,9 @@ class UserService private constructor() {
         }
     }
 
+    /**
+    * 登录保存用户uid
+    */
     fun loginWithUid(uid: Long) {
         XKeyValue.putLong(Key.USER_ID, uid)
     }

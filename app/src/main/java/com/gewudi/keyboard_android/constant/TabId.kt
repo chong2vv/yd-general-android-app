@@ -6,10 +6,12 @@ import androidx.annotation.StringDef
 @Retention(AnnotationRetention.SOURCE)
 annotation class TabId {
     companion object {
+        //首页
         const val HOME = "home"
         const val ACGN = "acgn"
         const val SMALL_VIDEO = "small_video"
         const val GOLD = "gold"
+        //我的
         const val MINE = "mine"
     }
 }

@@ -17,8 +17,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
     }
 
     private fun initView() {
+        // 初始化启动登录fragment
         supportFragmentManager.beginTransaction().replace(viewBinding.fragmentContainer.id,UserLoginFragment()).commit()
-
     }
 
     @PageName
