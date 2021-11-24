@@ -9,7 +9,7 @@ import com.gewudi.keyboard_android.constant.PageName
 import com.gewudi.keyboard_android.constant.TabId
 import com.gewudi.keyboard_android.databinding.ActivityMainBinding
 import com.gewudi.keyboard_android.module.acgn.AcgnFragment
-import com.gewudi.keyboard_android.module.gold.MessageFragment
+import com.gewudi.keyboard_android.module.message.MessageFragment
 import com.gewudi.keyboard_android.module.home.HomeFragment
 import com.gewudi.keyboard_android.module.mine.MineFragment
 import com.gewudi.keyboard_android.module.smallvideo.SmallVideoFragment
@@ -63,7 +63,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             Tab(TabId.HOME, getString(R.string.page_home), R.drawable.selector_btn_home, HomeFragment::class),
             Tab(TabId.SMALL_VIDEO, getString(R.string.page_small_video), R.drawable.selector_btn_small_video, SmallVideoFragment::class),
             Tab(TabId.ACGN, getString(R.string.page_acgn), R.drawable.selector_btn_acgn, AcgnFragment::class),
-            Tab(TabId.GOLD, getString(R.string.page_gold), R.drawable.selector_btn_gold, MessageFragment::class),
+            Tab(TabId.MESSAGE, getString(R.string.page_message), R.drawable.selector_btn_gold, MessageFragment::class),
             Tab(TabId.MINE, getString(R.string.page_mine), R.drawable.selector_btn_mine, MineFragment::class)
         )
 
@@ -96,7 +96,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
             TabId.HOME -> getString(R.string.page_home)
             TabId.SMALL_VIDEO -> getString(R.string.page_small_video)
             TabId.ACGN -> getString(R.string.page_acgn)
-            TabId.GOLD -> getString(R.string.page_gold)
+            TabId.MESSAGE -> getString(R.string.page_message)
             TabId.MINE -> getString(R.string.page_mine)
             else -> ""
         }
