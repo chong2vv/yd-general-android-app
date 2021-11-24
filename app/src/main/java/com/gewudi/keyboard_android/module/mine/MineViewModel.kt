@@ -23,7 +23,7 @@ class MineViewModel : BaseRecyclerViewModel() {
         viewModelScope.launch {
 
             if (UserService.instance.isLogin()) {
-                val result = UserNetworkApi.requestUserShow()
+                val result = UserNetworkApi.requestUserShow(UserService.instance.getUid())
                 var user = result.getOrNull()
                 user?.let {
                     UserService.instance.updateCurrentUser(it)
