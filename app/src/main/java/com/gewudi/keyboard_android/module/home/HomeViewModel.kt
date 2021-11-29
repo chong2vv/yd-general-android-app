@@ -18,8 +18,6 @@ import kotlinx.coroutines.launch
 
 class HomeViewModel : BaseRecyclerViewModel() {
 
-    val testLiveData = MutableLiveData<Result<TestBean>>()
-    val test2LiveData = MutableLiveData<Result<TestBean>>()
 
     override fun loadData(isLoadMore: Boolean, isReLoad: Boolean, page: Int) {
         viewModelScope.launch {
