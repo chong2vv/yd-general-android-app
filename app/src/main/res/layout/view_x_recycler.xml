@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <!--下拉刷新和列表-->
-    <com.gewudi.keyboard_android.base.list.pullrefresh.PullRefreshLayout
+    <com.wyd.yd_app.base.list.pullrefresh.PullRefreshLayout
         android:id="@+id/refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,15 +14,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.gewudi.keyboard_android.base.list.loadmore.LoadMoreRecyclerView
+        <com.wyd.yd_app.base.list.loadmore.LoadMoreRecyclerView
             android:id="@+id/load_more_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scrollbars="vertical" />
 
-    </com.gewudi.keyboard_android.base.list.pullrefresh.PullRefreshLayout>
+    </com.wyd.yd_app.base.list.pullrefresh.PullRefreshLayout>
 
-    <com.gewudi.keyboard_android.widget.LoadingView
+    <com.wyd.yd_app.widget.LoadingView
         android:id="@+id/loading_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.gewudi.keyboard_android.widget.ErrorView
+    <com.wyd.yd_app.widget.ErrorView
         android:id="@+id/error_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

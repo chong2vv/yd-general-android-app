@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.gewudi.keyboard_android">
+    package="com.wyd.yd_app">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -19,7 +19,7 @@
 <!--    tools:targetApi="n"-->
 <!--    android:networkSecurityConfig="${networkSecurityConfig}"-->
     <application
-        android:name=".XArchApplication"
+        android:name="com.wyd.yd_app.XArchApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,7 +31,7 @@
         tools:replace="android:allowBackup,android:networkSecurityConfig,android:supportsRtl"
         tools:targetApi="n">
         <activity
-            android:name=".module.main.MainActivity"
+            android:name="com.wyd.yd_app.module.main.MainActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme"
             android:exported="true">
@@ -43,23 +43,23 @@
         </activity>
 
         <activity
-            android:name=".module.about.AboutActivity"
+            android:name="com.wyd.yd_app.module.about.AboutActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActionBarActivityTheme" />
 
-        <activity android:name=".module.login.LoginActivity"
+        <activity android:name="com.wyd.yd_app.module.login.LoginActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme" />
 
-        <activity android:name=".module.user.UserInfoActivity"
+        <activity android:name="com.wyd.yd_app.module.user.UserInfoActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme"/>
 
-        <activity android:name=".module.user.UserUpdateActivity"
+        <activity android:name="com.wyd.yd_app.module.user.UserUpdateActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme"/>
 
-        <activity android:name=".module.user.UserListActivity"
+        <activity android:name="com.wyd.yd_app.module.user.UserListActivity"
             android:screenOrientation="fullSensor"
             android:theme="@style/ActivityTheme"/>
     </application>

@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.gewudi.keyboard_android.widget.ImageTagView
+    <com.wyd.yd_app.widget.ImageTagView
         android:id="@+id/user_face_image"
         android:layout_width="44dp"
         android:layout_height="44dp"

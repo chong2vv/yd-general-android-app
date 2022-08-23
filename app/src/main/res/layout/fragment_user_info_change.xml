@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white">
 
-    <com.gewudi.keyboard_android.widget.NavigationView
+    <com.wyd.yd_app.widget.NavigationView
         android:id="@+id/navigation_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-    </com.gewudi.keyboard_android.widget.NavigationView>
+    </com.wyd.yd_app.widget.NavigationView>
 
     <TextView
         android:id="@+id/title_view"

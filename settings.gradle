@@ -1,2 +1,3 @@
-rootProject.name = "keyboard_android"
+rootProject.name = "yd_android_app"
 include ':app'
+include ':YD'

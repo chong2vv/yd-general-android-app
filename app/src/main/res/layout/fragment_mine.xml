@@ -54,7 +54,7 @@
         app:layout_constraintTop_toBottomOf="@id/user_face_card"
          />
 
-    <com.gewudi.keyboard_android.widget.TitleValueView
+    <com.wyd.yd_app.widget.TitleValueView
         android:id="@+id/like_count_view"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@id/desc_view"
         app:layout_constraintLeft_toLeftOf="@id/desc_view"/>
 
-    <com.gewudi.keyboard_android.widget.TitleValueView
+    <com.wyd.yd_app.widget.TitleValueView
         android:id="@+id/fans_count_view"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
         app:layout_constraintTop_toTopOf="@id/like_count_view"
         app:layout_constraintLeft_toRightOf="@id/like_count_view" />
 
-    <com.gewudi.keyboard_android.widget.TitleValueView
+    <com.wyd.yd_app.widget.TitleValueView
         android:id="@+id/collect_count_view"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toTopOf="@id/fans_count_view"
         app:layout_constraintLeft_toRightOf="@id/fans_count_view"/>
 
-    <com.gewudi.keyboard_android.base.list.XRecyclerView
+    <com.wyd.yd_app.base.list.XRecyclerView
         android:id="@+id/rv_list"
         android:layout_width="0dp"
         android:layout_height="0dp"

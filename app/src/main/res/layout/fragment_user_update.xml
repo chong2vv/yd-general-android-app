@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <com.gewudi.keyboard_android.widget.NavigationView
+    <com.wyd.yd_app.widget.NavigationView
         android:id="@+id/navigation_bar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@id/user_face_card"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <com.gewudi.keyboard_android.base.list.XRecyclerView
+    <com.wyd.yd_app.base.list.XRecyclerView
         android:id="@+id/rv_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
